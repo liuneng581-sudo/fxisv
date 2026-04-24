@@ -1,0 +1,1 @@
+module.exports = { apps: [{ name: "fxisv-api", script: "index.js", cwd: "/www/wwwroot/fxisv.com/server", env: { NODE_PATH: "/www/wwwroot/fxisv.com/node_modules" } }] };
