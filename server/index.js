@@ -1055,9 +1055,9 @@ app.post('/api/admin/tutorials', auth, adminOnly, csrfValidate, (req, res) => {
 
 app.put('/api/admin/tutorials/:id', auth, adminOnly, csrfValidate, (req, res) => {
   try {
-    const { title, content, sort_order } = req.body;
-    db.prepare('UPDATE tutorials SET title = ?, content = ?, sort_order = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?')
-      .run(title, content || '', sort_order || 0, req.params.id);
+    const { category, title, content, sort_order } = req.body;
+    db.prepare('UPDATE tutorials SET category = ?, title = ?, content = ?, sort_order = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?')
+      .run(category, title, content || '', sort_order || 0, req.params.id);
     res.json({ success: true });
   } catch (err) {
     errorRes(res, 500, err.message, 'INTERNAL_ERROR');
